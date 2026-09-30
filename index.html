@@ -42,27 +42,31 @@
     padding: 10px 14px; margin: 0 0 16px; font-size: 14px; color: var(--muted);
   }
   .tip b { color: var(--green); }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .item {
-    display: grid; grid-template-columns: 64px 1fr auto; gap: 14px; align-items: center;
-    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
-    padding: 16px 18px; margin-bottom: 12px; text-decoration: none; color: inherit;
+    display: flex; flex-direction: column; background: var(--card);
+    border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+    text-decoration: none; color: inherit;
     transition: border-color .15s, box-shadow .15s, transform .15s;
   }
-  .item:hover, .item:focus-visible { border-color: var(--green); box-shadow: 0 4px 14px rgba(62,106,86,.12); transform: translateY(-1px); outline: none; }
+  .item:hover, .item:focus-visible { border-color: var(--green); box-shadow: 0 6px 18px rgba(62,106,86,.14); transform: translateY(-2px); outline: none; }
+  .thumb { position: relative; aspect-ratio: 16 / 9; background: var(--green-soft); border-bottom: 1px solid var(--line); overflow: hidden; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
   .code {
-    background: var(--green-soft); color: var(--green); font-weight: 700;
-    border-radius: 6px; text-align: center; padding: 6px 0; font-size: 15px;
+    position: absolute; top: 10px; left: 10px;
+    background: var(--green); color: #fff; font-weight: 700;
+    border-radius: 6px; padding: 2px 10px; font-size: 14px;
   }
+  .body { padding: 14px 16px 16px; display: flex; flex-direction: column; flex: 1; }
   .title { font-weight: 700; font-size: 17px; margin: 0; }
-  .title small { font-weight: 400; color: var(--muted); font-size: 14px; }
-  .desc { margin: 2px 0 0; font-size: 14.5px; color: var(--muted); }
-  .go { color: var(--green); font-weight: 700; font-size: 14px; white-space: nowrap; }
+  .title small { font-weight: 400; color: var(--muted); font-size: 13.5px; }
+  .desc { margin: 4px 0 10px; font-size: 14.5px; color: var(--muted); flex: 1; }
+  .go { color: var(--green); font-weight: 700; font-size: 14px; }
   footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
-  @media (max-width: 520px) {
+  @media (max-width: 600px) {
     .wrap { padding: 32px 16px 48px; }
     h1 { font-size: 25px; }
-    .item { grid-template-columns: 52px 1fr; }
-    .go { grid-column: 2; }
+    .grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -80,40 +84,40 @@
   <p class="section-desc">依學生學習狀況設計，運用生成式 AI（Gemini Canvas）協助開發的互動練習工具。</p>
   <div class="tip"><span>ⓘ</span><span>開啟時會先出現 Gemini 的安全提醒，請按<b>「繼續」</b>，約 10 秒後載入，<b>不需登入</b>即可操作。</span></div>
 
+  <div class="grid">
   <a class="item" href="https://gemini.google.com/share/4649ca9f1ebe" target="_blank" rel="noopener">
-    <span class="code">A1</span>
-    <span><p class="title">改錯字練習</p><p class="desc">改錯字練習小工具：從詞語到句子（分年級版）</p></span>
-    <span class="go">開啟 →</span>
-  </a>
+      <span class="thumb"><img src="img/a1.jpg" alt="A1 畫面截圖" loading="lazy"><span class="code">A1</span></span>
+      <span class="body"><p class="title">改錯字練習</p><p class="desc">改錯字練習小工具：從詞語到句子（分年級版）</p><span class="go">開啟 →</span></span>
+    </a>
   <a class="item" href="https://gemini.google.com/share/56e1516d06a0" target="_blank" rel="noopener">
-    <span class="code">A3-1</span>
-    <span><p class="title">長度練習</p><p class="desc">長度測量與比較練習小工具（分年級版）</p></span>
-    <span class="go">開啟 →</span>
-  </a>
+      <span class="thumb"><img src="img/a3-1.jpg" alt="A3-1 畫面截圖" loading="lazy"><span class="code">A3-1</span></span>
+      <span class="body"><p class="title">長度練習</p><p class="desc">長度測量與比較練習小工具（分年級版）</p><span class="go">開啟 →</span></span>
+    </a>
   <a class="item" href="https://gemini.google.com/share/be8d1bf9f09d" target="_blank" rel="noopener">
-    <span class="code">A3-2</span>
-    <span><p class="title">月曆教具</p><p class="desc">月曆概念輔助教具：練習數算間隔、日期</p></span>
-    <span class="go">開啟 →</span>
-  </a>
+      <span class="thumb"><img src="img/a3-2.jpg" alt="A3-2 畫面截圖" loading="lazy"><span class="code">A3-2</span></span>
+      <span class="body"><p class="title">月曆教具</p><p class="desc">月曆概念輔助教具：練習數算間隔、日期</p><span class="go">開啟 →</span></span>
+    </a>
   <a class="item" href="https://gemini.google.com/share/97cef9407960" target="_blank" rel="noopener">
-    <span class="code">A4</span>
-    <span><p class="title">關聯詞小工具</p><p class="desc">關聯詞教學後練習：熟練句式結構及前後句對應關係</p></span>
-    <span class="go">開啟 →</span>
-  </a>
+      <span class="thumb"><img src="img/a4.jpg" alt="A4 畫面截圖" loading="lazy"><span class="code">A4</span></span>
+      <span class="body"><p class="title">關聯詞小工具</p><p class="desc">關聯詞教學後練習：熟練句式結構及前後句對應關係</p><span class="go">開啟 →</span></span>
+    </a>
+
+  </div>
 
   <h2>B　科技作品：以科技解決組織的實際需求</h2>
   <p class="section-desc">整理使用者需求後，運用生成式 AI 協助開發，目前約有 15～30 位組織師生使用。</p>
 
+  <div class="grid">
   <a class="item" href="https://rubyboss2004.github.io/babypoo/" target="_blank" rel="noopener">
-    <span class="code">B1</span>
-    <span><p class="title">線上譜夾 <small>（寶寶勇士樂譜庫）</small></p><p class="desc">樂手練習及正式演奏使用，可線上閱譜、一鍵轉調</p></span>
-    <span class="go">開啟 →</span>
-  </a>
+      <span class="thumb"><img src="img/b1.jpg" alt="B1 畫面截圖" loading="lazy"><span class="code">B1</span></span>
+      <span class="body"><p class="title">線上譜夾 <small>（寶寶勇士樂譜庫）</small></p><p class="desc">樂手練習及正式演奏使用，可線上閱譜、一鍵轉調</p><span class="go">開啟 →</span></span>
+    </a>
   <a class="item" href="https://worshipteam-assignment.vercel.app/help" target="_blank" rel="noopener">
-    <span class="code">B2</span>
-    <span><p class="title">作業繳交平台 <small>（敬拜與事奉作業系統）</small></p><p class="desc">學生繳交作業後，老師可及時批改、給回饋。系統需登入，此連結為公開的使用說明頁（畫面為示範資料）</p></span>
-    <span class="go">開啟 →</span>
-  </a>
+      <span class="thumb"><img src="img/b2.jpg" alt="B2 畫面截圖" loading="lazy"><span class="code">B2</span></span>
+      <span class="body"><p class="title">作業繳交平台 <small>（敬拜與事奉作業系統）</small></p><p class="desc">學生繳交作業後，老師可及時批改、給回饋。系統需登入，此連結為公開的使用說明頁（畫面為示範資料）</p><span class="go">開啟 →</span></span>
+    </a>
+
+  </div>
 
   <footer>最後更新：2026 年 9 月 30 日</footer>
 </div>
